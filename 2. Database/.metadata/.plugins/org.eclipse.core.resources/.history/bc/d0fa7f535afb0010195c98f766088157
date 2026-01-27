@@ -1,0 +1,98 @@
+SHOW DATABASES;
+CREATE DATABASE mapdonalds;
+USE mapdonalds;
+SELECT DATABASE();
+USE employees;
+USE employees;
+DROP DATABASE mapdonalds;
+CREATE DATABASE mapdonalds;
+USE mapdonalds;
+
+CREATE TABLE burgers(
+	id int PRIMARY KEY,
+	name varchar(50),
+	price int,
+	gram int,
+	kcal int,
+	protein int
+	);
+
+DESC burgers;
+
+INSERT INTO burgers (id, name, price, gram, kcal, protein)
+values( 1, '빅맨', 5300, 223, 583, 27);
+
+SELECT *
+FROM burgers;  
+
+INSERT INTO burgers
+VALUES 
+	(2, '베이컨 톰메이러 디럭스', 6200, 242, 545, 27),
+	(3, '맨스파이시 상하이 버거', 5300, 235, 494, 20),
+	(4, '슈비두밥 버거', 6200, 269, 563, 21),
+	(5, '더블 쿼터파운드 치즈', 7000, 275, 770, 50);
+
+SELECT name, price 
+FROM burgers;
+
+SET sql_safe_updates =0;
+
+UPDATE burgers b 
+SET price = 1000;
+
+UPDATE burgers b 
+SET price = 500
+WHERE name = '빅맨';
+
+SELECT * FROM burgers;
+
+SET sql_safe_updates = 1;
+
+UPDATE burgers b 
+SET price = 500
+WHERE id = 1;
+
+DELETE FROM burgers 
+WHERE id = 4;
+
+DROP TABLE burgers;
+
+CREATE DATABASE cafe;
+USE cafe;
+SELECT database();
+
+CREATE TABLE coffees(
+	id int PRIMARY KEY,
+	name varchar(50),
+	price int);
+
+DROP DATABASE cafe;
+
+DROP DATABASE starbuuks;
+
+CREATE DATABASE starbuuks;
+USE starbuuks;
+SELECT database();
+CREATE TABLE coffees (
+	id int PRIMARY KEY,
+	name varchar(20),
+	price int);
+
+INSERT INTO coffees
+VALUES 
+	(1, '아메리카노', 3800),
+	(2, '카페라떼', 4000),
+	(3, '콜드브루', 3500),
+	(4, '카페모카', 4500),
+	(5, '카푸치노', 5000);
+
+SELECT * FROM coffees;
+
+UPDATE coffees c 
+SET price = 5200
+WHERE id = 5;
+
+DELETE FROM coffees 
+WHERE id = 3;
+
+SELECT * FROM coffees;
