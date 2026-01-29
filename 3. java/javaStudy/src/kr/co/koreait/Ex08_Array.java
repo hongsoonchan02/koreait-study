@@ -1,4 +1,4 @@
-package co.kr.koreait;
+package kr.co.koreait;
 
 import java.util.Arrays;
 import java.util.Comparator;

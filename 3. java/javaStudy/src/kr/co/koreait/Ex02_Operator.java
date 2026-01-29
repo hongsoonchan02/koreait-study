@@ -1,4 +1,4 @@
-package co.kr.koreait;
+package kr.co.koreait;
 
 public class Ex02_Operator {
 

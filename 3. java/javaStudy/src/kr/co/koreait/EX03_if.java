@@ -1,4 +1,4 @@
-package co.kr.koreait;
+package kr.co.koreait;
 
 class EX03_if {
 

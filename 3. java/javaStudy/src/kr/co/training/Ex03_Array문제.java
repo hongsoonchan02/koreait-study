@@ -2,7 +2,7 @@ package kr.co.training;
 
 import java.util.Scanner;
 
-public class Ex03_Array {
+public class Ex03_Array문제 {
 
 	public static void main(String[] args) {
 		
