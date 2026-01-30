@@ -17,12 +17,27 @@ public class Ex13_Method {
 		int result1 = calc.add(5, 3); // 5 + 3
 		calc.add(10, 10); // 10 + 10
 		calc.add(20, 10); // 20 + 10
-		int result2 = calc.sub(1, 5, 7);
-		System.out.println(result2);
+//		int result2 = calc.sub(1, 5, 7);
+//		System.out.println(result2);
 		int result3 = calc.mul(5,  7,  8,  10);
 		System.out.println(result3);
 		int result4 = calc.div(6, 19);
 		System.out.println(result4);
+		
+		int[] numbers = {100, 200, 300, 400};
+		int sub = calc.sub(numbers);
+		
+		
+		Ex13_2_Person person = new Ex13_2_Person();
+		person.introduce("홍순찬", 25);
+		person.sayAge(25);
+		
+		Ex13_3_BankAccount bankaccount = new Ex13_3_BankAccount();
+		bankaccount.deposit(10000);
+		bankaccount.withdraw(10000);
+		String p = bankaccount.checkBalance();
+		System.out.println(p);
+	
 	}
 	
 	// 안녕하세요 출력하는 메서드
