@@ -36,6 +36,7 @@ class Ex27_1_Calc<T extends Number> {
 		Integer a = (Integer) num1;
 		Integer b = (Integer) num2;
 		System.out.println(a + b);
+		
 	}
 }
 }
