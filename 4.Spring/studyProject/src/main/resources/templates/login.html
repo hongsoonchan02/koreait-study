@@ -21,7 +21,7 @@
       </button>
 
       <nav class="nav">
-        <a href="home.html">홈</a>
+        <a href="/">홈</a>
         <a href="board.html">게시판</a>
         <a href="profile.html">내 정보</a>
         <div class="nav-auth">
@@ -42,7 +42,7 @@
       </div>
 
       <!-- 로그인 폼 -->
-      <form onsubmit="handleFormSubmit(event, '로그인 성공! (학습용 알림)', 'board.html')">
+      <form action="/home/login" method="POST">
 
         <div class="form-group">
           <label for="email">이메일</label>

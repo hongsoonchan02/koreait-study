@@ -4,6 +4,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kr.co.studyProject.member.repository.MemberRepository;
+import kr.co.studyProject.member.dto.ReqLoginDTO;
 import kr.co.studyProject.member.dto.ReqSignupDTO;
 import kr.co.studyProject.member.entity.Member;
 import kr.co.studyProject.member.service.MemberService;
@@ -34,6 +35,7 @@ public class MemberServiceImpl implements MemberService {
 		// DB 저장
 		Member member = new Member();
 		member.setUserName(request.getUserName());
+		member.setUserNickname(request.getUserNickname());
 		member.setUserEmail(request.getUserEmail());
 		member.setPassword(passwordEncord);
 		member.setPhoneNumber(request.getPhoneNumber());
@@ -42,4 +44,11 @@ public class MemberServiceImpl implements MemberService {
 		
 		
 }
+	
+	@Override
+	public void login(ReqLoginDTO request) {
+		
+		Member member = memberRepository.findByUserEmail(request.getUserEmail());
+		
+	}
 }
