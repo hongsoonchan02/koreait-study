@@ -1,4 +1,4 @@
-package kr.co.study.board.dto;
+package kr.co.studyProject.member.dto;
 
 import java.time.LocalDateTime;
 
@@ -6,20 +6,19 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-public class ResBoardDTO {
+public class ResLoginDTO {
+	
 	private Long id;
-	private String title;
-	private String content;
-	private String writerName;
-	private String category;
+	private String userName;
+	private String userNickname;
+	private String phoneNumber;
+	
+	private LocalDateTime updatedAt;
 	private LocalDateTime createdAt;
-	private int viewCount;
 
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import kr.co.studyProject.member.repository.MemberRepository;
 import kr.co.studyProject.member.dto.ReqLoginDTO;
 import kr.co.studyProject.member.dto.ReqSignupDTO;
+import kr.co.studyProject.member.dto.ResLoginDTO;
 import kr.co.studyProject.member.entity.Member;
 import kr.co.studyProject.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -46,9 +47,29 @@ public class MemberServiceImpl implements MemberService {
 }
 	
 	@Override
-	public void login(ReqLoginDTO request) {
+	public ResLoginDTO login(ReqLoginDTO request) {
+		
 		
 		Member member = memberRepository.findByUserEmail(request.getUserEmail());
+		
+		if (member == null) {
+			return null; 
+		}
+		
+		if (!passwordEncoder.matches(request.getPassword(), member.getPassword())) {
+			return null;
+		}
+		
+		ResLoginDTO response = ResLoginDTO.builder()
+							   .id(member.getId())
+							   .userName(member.getUserName())
+							   .userNickname(member.getUserNickname())
+							   .phoneNumber(member.getPhoneNumber())
+							   .createdAt(member.getCreatedAt())
+							   .updatedAt(member.getUpdatedAt())
+							   .build();
+		
+		return response;	
 		
 	}
 }

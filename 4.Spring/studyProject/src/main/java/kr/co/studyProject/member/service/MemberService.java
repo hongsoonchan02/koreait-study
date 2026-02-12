@@ -3,6 +3,7 @@ package kr.co.studyProject.member.service;
 
 import kr.co.studyProject.member.dto.ReqLoginDTO;
 import kr.co.studyProject.member.dto.ReqSignupDTO;
+import kr.co.studyProject.member.dto.ResLoginDTO;
 import kr.co.studyProject.member.service.MemberService;
 
 public interface MemberService {
@@ -23,7 +24,7 @@ public interface MemberService {
 	 * @param request 사용자가 입력한 로그인 정보(userId, password)
 	 */
 	
-	public void login(ReqLoginDTO request);
+	ResLoginDTO login(ReqLoginDTO request);
 	
 
 }
