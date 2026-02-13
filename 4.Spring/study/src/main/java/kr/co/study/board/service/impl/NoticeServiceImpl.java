@@ -16,6 +16,7 @@ import kr.co.study.board.dto.ResBoardDTO;
 import kr.co.study.board.entity.Board;
 import kr.co.study.board.repository.BoardRepository;
 import kr.co.study.board.service.BoardService;
+import kr.co.study.member.dto.ReqLoginDTO;
 import kr.co.study.member.entity.Member;
 import kr.co.study.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -114,6 +115,62 @@ public class NoticeServiceImpl implements BoardService {
 								.viewCount(board.getViewCount())
 								.build();
 		return response;
+	}
+	
+	
+	@Override
+	@Transactional
+	public ResBoardDTO getBoardDetailEdit(Long id) {
+		
+		// 1. 게시글 조회
+		Board board = boardRepository.findById(id).orElse(null);
+		
+		
+		// 3. 응답 DTO 변환
+		ResBoardDTO response = ResBoardDTO.builder()
+								.id(board.getId())
+								.title(board.getTitle())
+								.content(board.getContent())
+								.writerName(board.getWriter().getUserName())
+								.createdAt(board.getCreatedAt())
+								.viewCount(board.getViewCount())
+								.build();
+		return response;
+	}
+	
+	@Override
+	@Transactional
+	public void edit(ReqBoardDTO request, Long id) {
+		
+		// 1. 기존 게시글이 존재하는지 조회
+		Board board = boardRepository.findById(request.getId()).orElse(null);
+		
+		if(board != null && !board.getWriter().getId().equals(id)) {
+			System.out.println("게시글이 없거나 작성자가 아닙니다.");
+		}
+		
+		// 2. 게시글 수정 반영
+		board.setCategory(request.getCategory());
+		board.setTitle(request.getTitle());
+		board.setContent(request.getContent());
+		
+	}
+	
+	@Override
+	public void delete(Long id, Long loginUserId) {
+		// 1. id로 게시글 조회
+		Board board = boardRepository.findById(id).orElse(null);
+		
+		// 2. 해당하는 게시글이 존재하는지 확인 및 작성자 검증
+		if(board == null) {
+			System.out.println("삭제할 수 없습니다.");
+		} else if(!board.getWriter().getId().equals(loginUserId)) {
+			System.out.println("삭제 권한이 없습니다.");
+		}
+		
+		// 3. 삭제 처리
+		boardRepository.delete(board);
+		
 	}
 	
 }

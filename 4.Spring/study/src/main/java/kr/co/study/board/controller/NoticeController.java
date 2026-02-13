@@ -35,7 +35,7 @@ public class NoticeController {
 		// 페이징 버튼 블록 계산
 		//	- 현재 페이지가 3페이지다 -> 1~5페이지 보이게
 		//	- 현재 페이지가 7페이지다 -> 6~10페이지 보이게
-		int currentPage = list.getNumber() + 1; // 현재 페에지 (JPA는 0부터 시작하므로 +1)
+		int currentPage = list.getNumber() + 1; // 현재 페이지 (JPA는 0부터 시작하므로 +1)
 		int totalPages = list.getTotalPages(); // 전체 페이지
 		
 		int blockSize = 5; // 5개의 버튼씩 보이게
@@ -100,4 +100,58 @@ public class NoticeController {
 		// 4. 목록으로 이동
 		return"redirect:/board/notice";
 	}
+	
+	@GetMapping("/edit/form")
+	public String editForm(@RequestParam(name="id") Long id, Model model) {
+		ResBoardDTO response = boardService.getBoardDetailEdit(id);
+		model.addAttribute("notice", response);
+		
+		return "/pages/board/notice-edit";
+	}
+	
+	@PostMapping("/edit")
+	public String edit(ReqBoardDTO request, HttpSession session) {
+		// 1. 로그인한 사용자 조회
+		ResLoginDTO loginUser = (ResLoginDTO) session.getAttribute("LOGIN_USER");
+		
+		// 2. 로그인하지 않은 사용자는 수정 불가
+		if (loginUser == null) {
+			return "redirect:/member/login/form";
+		}
+		
+		// 3. 게시글 수정 진행
+		boardService.edit(request, loginUser.getId());
+		
+		return "redirect:/board/notice/detail?id=" + request.getId();
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam(name="id") Long id,
+						 HttpSession session) {
+		// 1. 로그인 사용자 정보 조회
+		ResLoginDTO loginUser = (ResLoginDTO) session.getAttribute("LOGIN_USER");
+		
+		// 2. 비로그인 상태면 삭제 불가
+		if(loginUser == null) return "redirect:/member/login/form";
+		
+		// 3. 삭제 실행
+		boardService.delete(id, loginUser.getId());
+		
+		return"redirect:/board/notice";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

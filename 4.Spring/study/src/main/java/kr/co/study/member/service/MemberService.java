@@ -42,5 +42,6 @@ public interface MemberService {
 	
 	ResLoginDTO login(ReqLoginDTO request);
 	
+	
 
 }

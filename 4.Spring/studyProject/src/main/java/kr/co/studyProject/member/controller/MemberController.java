@@ -56,19 +56,4 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
-	
-	@GetMapping("/board/form")
-	public String boardForm() {
-		return "/board";
-	}
-	
-	@GetMapping("/board/write/form")
-	public String boardWriteForm() {
-		return "/board-write";
-	}
-	
-	
-
-
-
 }

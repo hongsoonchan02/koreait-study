@@ -42,7 +42,7 @@
       </div>
 
       <!-- Write Form -->
-      <form onsubmit="handleFormSubmit(event, '게시글이 작성되었습니다! (학습용 알림)', 'board.html')">
+      <form action="/board/write" method="post">
 
         <div class="form-group">
           <label for="category">카테고리</label>
@@ -74,7 +74,7 @@
           <textarea
             id="content"
             class="form-textarea"
-            name="comtent"
+            name="content"
             placeholder="게시글 내용을 입력하세요..."
             rows="12"
             required

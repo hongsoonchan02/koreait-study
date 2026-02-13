@@ -1,19 +1,20 @@
-package kr.co.study.board.dto;
+package kr.co.studyProject.board.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+
 public class ReqBoardDTO {
+	
 	private Long id;
-	private String category;
+	private int viewCount;
+	private String userName;
 	private String title;
 	private String content;
 
