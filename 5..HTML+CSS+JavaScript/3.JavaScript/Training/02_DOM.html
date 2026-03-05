@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>문제1</legend>
+        <h4>문자열을 입력받아 문자열의 길이를 div에 출력하세요.</h4>
+        <input type="text" id="q1-str">
+        <button onclick="Q1()">출력</button>
+        <div id="q1-result"></div>
+    </fieldset>
+    <script>
+        function Q1() {
+            const q1str = document.getElementById("q1-str").value;
+            const q1result = document.getElementById("q1-result");
+            
+            q1result.textContent = q1str.length;
+            
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제2</legend>
+        <h4>세 개의 숫자를 입력받아 합을 div에 출력하세요.</h4>
+        <input type="number" id="q2-number-1">
+        <input type="number" id="q2-number-2">
+        <input type="number" id="q2-number-3">
+        <button onclick="Q2()">출력</button>
+        <div id="q2-result"></div>
+    </fieldset>
+    <script>
+        function Q2() {
+            const q2number1 = parseInt(document.getElementById("q2-number-1").value);
+            const q2number2 = parseInt(document.getElementById("q2-number-2").value);
+            const q2number3 = parseInt(document.getElementById("q2-number-3").value);
+            const q2result = document.getElementById("q2-result");
+
+            q2result.textContent = (q2number1 + q2number2 + q2number3);
+
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제3</legend>
+        <h4>두 개의 숫자를 입력받아 더 작은 숫자를 div에 출력하세요.</h4>
+        <input type="number" id="q3-number-1">
+        <input type="number" id="q3-number-2">
+        <button onclick="Q3()">출력</button>
+        <div id="q3-result"></div>
+    </fieldset>
+    <script>
+        function Q3() {
+            const q3number1 = parseInt(document.getElementById("q3-number-1").value);
+            const q3number2 = parseInt(document.getElementById("q3-number-2").value);
+            const q3result = document.getElementById("q3-result");
+
+            q3result.textContent = (q3number1 > q3number2) ? q3number2 : q3number1;
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제4</legend>
+        <h4>문자열을 입력받아 모두 대문자로 변환하여 div에 출력하세요.</h4>
+        <input type="text" id="q4-str">
+        <button onclick="Q4()">출력</button>
+        <div id="q4-result"></div>
+    </fieldset>
+    <script>
+        function Q4() {
+            const q4str = document.getElementById("q4-str").value;
+            const q4result = document.getElementById("q4-result");
+
+            q4result.textContent = q4str.toLocaleUpperCase();
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제5</legend>
+        <h4>두 숫자를 입력받아 두 숫자의 차이를 div에 출력하세요.</h4>
+        <input type="number" id="q5-number-1">
+        <input type="number" id="q5-number-2">
+        <button onclick="Q5()">출력</button>
+        <div id="q5-result"></div>
+    </fieldset>
+    <script>
+        function Q5() {
+            const q5number1 = parseInt(document.getElementById("q5-number-1").value);
+            const q5number2 = parseInt(document.getElementById("q5-number-2").value);
+            const q5result = document.getElementById("q5-result");
+
+            q5result.textContent = q5number1 - q5number2;
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제6</legend>
+        <h4>숫자를 입력받아 양수, 음수, 0인지 판별하여 alert으로 출력하세요.</h4>
+        <input type="number" id="q6-number">
+        <button onclick="Q6()">판별</button>
+    </fieldset>
+    <script>
+        function Q6() {
+            const q6number = parseInt(document.getElementById("q6-number").value);
+
+            if (q6number === 0) {
+                alert("0입니다.");
+            } else if (q6number > 0) {
+                alert("양수 입니다.");
+            } else {
+                alert("음수 입니다.");
+            }
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제7</legend>
+        <h4>숫자(소수점 포함)를 입력받아 올림 계산하여 div에 출력하세요.</h4>
+        <h6>힌트 : Math 관련 메서드를 확인해보세요.</h6>
+        <input type="number" id="q7-number">
+        <button onclick="Q7()">출력</button>
+        <div id="q7-result"></div>
+    </fieldset>
+    <script>
+        function Q7() {
+            const q7number = parseFloat(document.getElementById("q7-number").value);
+            const q7result = document.getElementById("q7-result");
+
+            q7result.textContent = Math.ceil(q7number);
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제8</legend>
+        <h4>세 개의 숫자를 입력받아 가장 큰 숫자를 alert으로 출력하세요.</h4>
+        <input type="number" id="q8-number-1">
+        <input type="number" id="q8-number-2">
+        <input type="number" id="q8-number-3">
+        <button onclick="Q8()">출력</button>
+    </fieldset>
+    <script>
+        function Q8() {
+            const q8number1 = parseInt(document.getElementById("q8-number-1").value);
+            const q8number2 = parseInt(document.getElementById("q8-number-2").value);
+            const q8number3 = parseInt(document.getElementById("q8-number-3").value);
+            let result = 0;
+
+            if (q8number1 > q8number2) {
+                result = q8number1
+            } else {
+                result = q8number2
+            }
+            if (result < q8number3) {
+                result = q8number3
+            }
+            alert(result);
+        }
+    </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>
