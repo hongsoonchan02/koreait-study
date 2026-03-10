@@ -14,7 +14,7 @@ function SubmitEvent() {
     }
 
     useEffect(() => {
-        console.log(formData);
+        console.log(formData);              
     })
 
     return (
