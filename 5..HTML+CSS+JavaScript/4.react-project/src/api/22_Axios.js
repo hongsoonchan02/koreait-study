@@ -7,6 +7,7 @@ export const getUser = async () => {
         return response.data;
 
     } catch(err) {
-        console.error("통신 실패 : ", err)
+        console.error("통신 실패 : ", err);
+        throw err;
     }
 } 
