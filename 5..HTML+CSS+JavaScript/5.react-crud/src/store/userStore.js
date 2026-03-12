@@ -1,9 +1,10 @@
 import { create } from "zustand";
 
 const useUserStore = create((set) => ({
-    currentUser: null,
     setCurrentUser: (userData) => {
+        currentUser: null,
         set({ currentUser: userData });
+        logout: () => set({ currentUser: null })
     }
 }))
 

@@ -2,6 +2,8 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from './pages/Home.jsx'
 import Register from "./pages/Register.jsx";
 import Login from "./pages/Login.jsx";
+import NoticeList from "./pages/NoticeList.jsx";
+import NoticeDetail from "./pages/NoticeDetail.jsx";
 
 function App() {
 
@@ -11,6 +13,8 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/notice/list" element={<NoticeList/>}></Route>
+        <Route path="/notice/detail/:id" element={<NoticeDetail/>}></Route>
       </Routes>
     </Router>
   )

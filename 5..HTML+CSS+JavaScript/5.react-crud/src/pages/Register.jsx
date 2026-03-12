@@ -2,6 +2,9 @@ import Header from "../components/Header";
 import { useState } from "react";
 import registerMemberMutation from "../query/registerMemberMutation";
 
+// pages, components : UI 렌더링
+//  - pages가 기본 (react-router가 접근하는 페이지)
+//  - compoenents : 재사용이 필요한 UI (ex. Header)
 function Register() {
     const registerMutation = registerMemberMutation();
 
@@ -15,11 +18,8 @@ function Register() {
 
     const handleChange = (e) => {
         const {name, value} = e.target;
-        console.log("handleChange name: ", name);
-        console.log("handleChange value: ", value);
 
         setFormData({...formData, [name]: value})
-        console.log(formData)
     }
 
     const handleRegister = (e) => {
