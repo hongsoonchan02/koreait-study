@@ -1,6 +1,7 @@
 import Header from "../components/Header"
 import { useNoticeListHook } from "../hooks/useNoticeListHook";
 import useUserStore from "../store/userStore";
+import { Link } from "react-router-dom";
 
 function NoticeList() {
     const { noticeList,
@@ -92,11 +93,11 @@ function NoticeList() {
                 >
                     <h1>공지사항</h1>
                     {/* 글쓰기 버튼 추가 */}
-                    {isLogin && <a href="announcement-write.html"
+                    {isLogin && <Link to="/notice/write"
                         className="btn btn-primary"
                         style={{ textDecoration: "none" }}>
                         글쓰기
-                    </a>}
+                    </Link>}
                 </div>
 
                 {noticeList.length === 0 ? (

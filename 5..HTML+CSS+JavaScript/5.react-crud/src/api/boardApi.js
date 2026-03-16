@@ -38,6 +38,45 @@ export const noticeDetailApi = async (postId) => {
 
 // 게시글 삭제
 export const noticeDeleteApi = async (postId) => {
-    const response = await axiosInstance.delete(`/api/board/notice/${postId}`)
+    const response = await axiosInstance.delete(`/api/board/notice/${postId}`, {
+        withCredentials: true
+    })
+
+    return response.data;
+
+}
+
+export const noticeCreateApi = async (formData) => {
+    formData.forEach(element => {
+        console.log(element)
+    });
+
+    const response = await axiosInstance.post("/api/board/notice",
+                                                formData, {
+                                                    withCredentials: true,
+                                                    headers: {
+                                                        'Content-Type': 'multipart/form-data'
+                                                    }
+                                                })
+    
+
+    return response.data;
+}
+
+export const noticeEditApi = async (formData, postId) => {
+    console.log(postId)
+    console.log(formData)
+    // put, patch : 수정
+    //  - put : 전체 리소스 수정
+    //  - patch : 일부 리소스 수정
+    const response = await axiosInstance.patch(`/api/board/notice/${postId}`,
+                                                formData, {
+                                                    withCredentials: true,
+                                                    headers: {
+                                                        'Content-Type': 'multipart/form-data'
+                                                    }
+                                                })
+    
+
     return response.data;
 }

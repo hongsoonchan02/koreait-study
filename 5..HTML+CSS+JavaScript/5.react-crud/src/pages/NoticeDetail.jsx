@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import { useNoticeDetailHook } from "../hooks/useNoticeDetailHook";
-import { useNoticeDeleteMutaion } from "../query/noticeDeleteMutation";
 
 function NoticeDetail() {
 
@@ -106,7 +105,7 @@ function NoticeDetail() {
                     )}
                     <div id="detailContent" className="detail-content">
                         {/* 상세 내용 */}
-                        {data.contene}
+                        {data.content}
                     </div>
                 </div>
                 {/* 댓글 섹션 */}
