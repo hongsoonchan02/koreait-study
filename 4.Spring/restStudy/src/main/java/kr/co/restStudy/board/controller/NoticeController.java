@@ -123,7 +123,7 @@ public class NoticeController {
 		}
 		
 		// 3. 게시글 수정 진행
-		boardService.edit(id, request, files, loginUser.getId());
+		boardService.edit(request, files, id);
 		
 		return ResponseEntity.ok("성공");
 	}
