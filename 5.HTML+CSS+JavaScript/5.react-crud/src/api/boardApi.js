@@ -1,4 +1,4 @@
-import axiosInstance from "./AxiosInstance"
+import axiosInstance from "./axiosInstance"
 
 // 공지사항 목록 조회
 export const noticeListApi = async (page = 1) => {
