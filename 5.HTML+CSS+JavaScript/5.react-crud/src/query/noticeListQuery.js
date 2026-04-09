@@ -5,7 +5,7 @@ import { noticeListApi} from "../api/boardApi";
 export const useNoticeListQuery = (page = 1) => {
 
     return useQuery({
-        queryKey: ['noticeList', page],
+        queryKey: ['noticeList', page],vs
         queryFn: () => noticeListApi(page),
         staleTime: 30000, // 30초간 유지,
         retry: 1
